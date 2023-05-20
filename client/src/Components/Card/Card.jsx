@@ -7,15 +7,16 @@ import { Link } from 'react-router-dom';
 const  Card = (props) => {
     
     // const audioRef = useRef(null);
-    // function handleMouse() {
+    function handleMouse() {
     //    audioRef.current.currentTime = 0;
     //    audioRef.current.play();
-    // }
+    console.log('mouse entered')
+    }
     //  onMouseEnter={handleMouse}
 
 
     return (
-        <div className={style.card}  >
+        <div className={style.card}  onMouseEnter={handleMouse} >
             <div className={style.font}>
                 <img src={props.image} alt={props.name} />
             </div>
