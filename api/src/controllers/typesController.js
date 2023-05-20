@@ -1,8 +1,8 @@
 const axios = require('axios');
 const { TypesOfPokemon } = require('../db');
-const { DB_URL } = process.env;
+// const { DB_URL } = process.env;
 
-const URL = `${DB_URL}`
+const URL = `https://pokeapi.co/api/v2/`
 
 const getPokemonTypes = async () => {
   const response = await axios.get(`${URL}/type`);
