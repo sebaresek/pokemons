@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Montserrat|Lato|Raleway|Poppins|Ubuntu|Playfair+Display|Source+Sans+Pro|Merriweather&display=swap');
+
+.body {
+  display: flex;
+  flex-direction: column;
+   /* centra verticalmente los elementos dentro del contenedor */
+  justify-content: center; 
+  /* centra horizontalmente los elementos dentro del contenedor. */
+  align-items: center;
+  /* establece la altura mínima del contenedor como 100% de la altura visible del dispositivo. */
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgba(175,184,194,1) 0%, rgba(217,220,226,1) 45%, rgba(217,220,226,1) 55%, rgba(175,184,194,1) 100%);
+   /* background: #C8D2DC; */
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* establece el ancho máximo del contenedor como 1000 píxeles */
+  max-width: 1000px;
+  /* establece un espacio interno de 1 unidad em alrededor de los elementos dentro del contenedor. */
+  padding: 1em;
+  /* establece un espacio externo de 1 unidad em alrededor del contenedor. */
+  margin: 1em;
+  /* agrega una sombra al contenedor. */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  background: #D2D7DF;
+}
+
+.title {
+  position: relative;
+  /* establece el tamaño de la fuente en 8 veces el tamaño de la fuente por defecto del navegador */
+  font-size: 8em;
+  /* negrita */
+  font-weight: bold;
+  /* define la fuente a utilizar, con prioridad en "Montserrat" y como segunda opción fuentes sans-serif genéricas */
+  font-family: 'Montserrat', sans-serif;
+  /* margen inferior 0 es decir no tiene pue */
+  margin-bottom: 0em;
+  color: rgb(0, 0, 0);
+  /* margen superior 0 es decir no tiene pue */
+  margin-top: 0em;
+}
+
+.description__title {
+  font-size: 2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2b2b2b;
+}
+
+.description__text {
+  font-size: 1.1em;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  /* establece el espacio de relleno del contenido dentro del botón, es decir, la distancia entre el contenido y el borde del botón. */
+  padding: 0.5rem 2rem;
+  border-radius: 7px;
+  background-color: #192938;
+  color: #fff;
+  /* establece la decoración del texto dentro del botón, en este caso no hay ninguna*/
+  text-decoration: none;
+  /* establece la duración y la forma en que se llevará a cabo la transición de estilo del botón cuando el cursor del mouse se sitúa sobre él. En este caso, la transición será de 0.3 segundos con una función de aceleración/desaceleración suave. */
+  transition: background-color 0.3s ease-in-out, color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 2px 2px #acacac;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #192938;
+  box-shadow: 0 2px 2px 2px #acacac;
+}
+
+.button:active {
+  /* El valor 0.9 indica que el botón se reducirá a un 90% de su tamaño original. */
+  transform: scale(0.9);
+}
+
+.footer {
+  font-size: .8em;
+  color: #535353b7;
+  margin-top: 1.3em;
+}
+
+.pikachuImage {
+  width: 100%;
+  max-width: 370px;
+  margin-top: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,227 @@
+/* ESTILO PARA EL FORMULARIO */
+
+.form {
+  /*  Establece el tipo de diseño del contenedor como flexible. */
+  display: flex; 
+  /* Establece que los elementos hijos del contenedor pueden envolverse en una nueva línea si no hay suficiente espacio horizontal. */
+  flex-wrap: wrap; 
+  /* Centra los elementos horizontalmente */
+  justify-content: center; 
+  /* Establece el ancho del contenedor a 600 píxeles */
+  width: 600px; 
+  /* Establece el margen superior e inferior a cero y el margen izquierdo y derecho se ajustan automáticamente para centrar el contenedor en la página */
+  margin: 0 auto; 
+  /* Centra el texto dentro del contenedor horizontalmente */
+  text-align: center; 
+  /* Establece un margen superior de 3 unidades */
+  margin-top: 3em; 
+}
+  
+
+
+/* ESTILOS PARA LOS CAMPOS DE ENTRADA */
+
+.specialInput {
+  /* establece el elemento como un contenedor flexible, lo que permite que sus hijos se ajusten automáticamente en su interior */
+  display: flex;
+  /* establece la dirección principal de los elementos secundarios del contenedor flexible, en este caso, como una columna vertical */
+  flex-direction: column;
+  /* establece un margen inferior de 20 píxeles entre este elemento y el siguiente */
+  margin-bottom: 10px;
+  /* establece un margen derecho de 10 píxeles entre este elemento y el siguiente */
+  margin-right: 10px;
+  /* establece el ancho del elemento al 48% del ancho de su contenedor padre */
+  width: 48%;
+}
+  
+.specialInputLabel {
+  /* Establece un margen inferior de 5 píxeles para el elemento */
+  margin-bottom: 5px;
+  /* Establece el peso de la fuente como negrita */
+  font-weight: bold;
+  /* Establece el color de texto como blanco */
+  color: #000000;
+}
+  
+
+/* .specialInputField[type="text"], .specialInputField[type="number"] : Selecciona los elementos de tipo input que tienen el atributo type igual a "text" o "number" */
+.specialInputField[type="text"],  
+.specialInputField[type="number"] {
+  /* Elimina el contorno que se muestra por defecto en algunos navegadores cuando un input está enfocado */
+  outline: none;      
+  /* Define un espacio de relleno interior de 5 píxeles alrededor del contenido del elemento. */
+  padding: 5px;
+  /* Redondea las esquinas del borde en 5 píxeles */
+  border-radius: 5px;
+  /* Establece un borde sólido de 1 píxel con color negro */
+  border: 1px solid #000000;
+  /* Establece el color de fondo del elemento en un tono de gris oscuro */
+  background-color: rgb(114, 114, 114);
+  /* Define el grosor de la fuente como negrita */
+  font-weight: bold;
+  /* Establece el color del texto en negro */
+  color: rgb(0, 0, 0);
+  /* Establece el tamaño de fuente del texto en 15 píxeles */
+  font-size: 15px;
+}
+
+::placeholder {
+  color: rgb(65, 64, 64);
+}
+ 
+
+/* ANIMACION PARA LAS ENTRADAS */
+
+input[type="text"]:invalid,
+input[type="number"]:invalid {
+  /* establece un borde rojo de 2 píxeles alrededor del elemento. */
+  border: 2px solid red;
+  /* agrega una animación llamada shake que dura 0.2 segundos y se repite dos veces */
+  animation: shake 0.2s 2;
+}
+/* Indica el inicio de la definición de una animación que se llamará "shake" */
+@keyframes shake {
+  /*  Se especifica que a los 25% de la duración de la animación se producirá una transformación */
+  25% {
+    /* Se indica que la transformación será una traslación de 6 píxeles hacia la derecha (en el eje X) y 0 píxeles hacia arriba o abajo (en el eje Y) */
+    translate: 6px 0;
+  }
+  50% {
+    /* Se indica que la transformación será una traslación de  -6 píxeles hacia la izquierda (en el eje X) y 0 píxeles hacia arriba o abajo (en el eje Y) */
+    translate: -6px 0;
+  }
+  75% {
+    translate: 6px 0;
+  }
+}
+
+
+
+
+/* ESTILO PARA LOS CHECKBOXES */
+
+.container {
+  display: flex;
+  text-align: center;
+  margin-left: 3em;
+  /* establece que el texto dentro del contenedor debe mostrarse en negrita */
+  font-weight: bold;
+  color: #000000;
+  /* establece que los elementos dentro del contenedor deben envolverse a la siguiente fila cuando no haya suficiente espacio en la fila actual */
+  flex-wrap: wrap;
+  /* establece que los elementos dentro del contenedor deben colocarse en una fila (de izquierda a derecha) */
+  flex-direction: row;
+  /* establece un margen inferior de 15 píxeles para el contenedor */
+  margin-bottom: 15px;
+  /* establece que el ancho del contenedor debe ser el 100% del ancho disponible */
+  width: 100%;
+}
+
+.containerInput {
+  display: flex;
+  /* indica que los elementos deben ser colocados en columnas, en orden inverso al que aparecen en el código HTML. Es decir, el último elemento en el código HTML aparecerá primero en la columna. */
+  flex-direction: column-reverse;
+  /* establece un margen superior de 0.5 em para separar esta sección del elemento anterior */
+  margin-top: .5em;
+  /* establece un margen inferior de 15 px para separar esta sección del elemento siguiente */
+  margin-bottom: 15px;
+  /* establece que la anchura de esta sección debe ser del 100% del ancho del contenedor padre */
+  width: 100%;
+}
+  
+input[type="checkbox"] {
+  display: none;
+  justify-content: center; 
+  text-align: center;
+}
+  
+/* selecciona todos los elementos span que son hijos directos de un elemento label */
+label span {
+  /* hace que el elemento se muestre como un bloque, pero con la capacidad de ajustarse al ancho del contenido */
+  display: inline-block;
+  justify-content: center; 
+  width: 150px;
+  /* agrega un espacio de 5 píxeles de relleno alrededor del contenido del elemento */
+  padding: 5px;
+  border-radius: 5px;
+  /* establece el ancho y el estilo del borde del elemento en 1 píxel sólido de color negro (#000000) */
+  border: 1px solid #000000;
+  background-color: rgb(114, 114, 114);
+  /* establece un margen derecho de 10 píxeles al elemento */
+  margin-right: 10px;
+  /* establece un margen inferior de 5 píxeles al elemento */
+  margin-bottom: 5px;
+  text-align: center;
+  /* cambia el cursor del mouse a una mano cuando el cursor está sobre el elemento, indicando que se puede hacer clic en él */
+  cursor: pointer;
+}
+  
+input[type="checkbox"]:checked + span {
+  /* establece el color de fondo del elemento <span> en rojo oscuro cuando el elemento <input> de tipo checkbox está seleccionado */
+  background-color: #353535;
+  color: #fff;
+
+}
+
+
+
+
+
+button[type="submit"] {
+  position: absolute;
+  padding: 10px;
+  margin-top: 42em; 
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  overflow: hidden;
+  /* se están aplicando transiciones a tres propiedades diferentes */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  border-radius: 12px;
+  background-color: #2E86AB;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+}
+  
+button[type="submit"]:before {
+  /* mientras que pase el blanco que no se muestre el texto 'home' */
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-color: #D2D7DF;
+  /* top: 1.8em; */
+  left: 6%;
+  /* skewX(30deg): Esta transformación skewX aplica una inclinación o sesgo horizontal al elemento. El valor 30deg indica un sesgo de 30 grados hacia la derecha */
+  /* translate(-100%, -50%): Esta transformación translate realiza una traslación del elemento en los ejes X e Y. El valor -100% en el eje X indica que el elemento se moverá hacia la izquierda en un 100% de su ancho, y el valor -50% en el eje Y indica que se moverá hacia arriba en un 50% de su altura. */
+  transform: skewX(30deg) translate(-100%, -50%);
+  /* El valor transform indica que se aplicará una transición suave a todas las transformaciones aplicadas al elemento */
+  transition: transform 0.8s;
+}
+  
+button[type="submit"]:hover {
+  background-color: #d85d5b ;
+  color: #fff;
+}
+  
+button[type="submit"]:hover:before {
+  transform: skewX(30deg) translate(250%, -50%);
+}
+  
+button[type="submit"]:active {
+  /* El valor 0.9 indica que el botón se reducirá a un 90% de su tamaño original. */
+  transform: scale(0.9);
+}
+  
+.errors{
+  color: rgb(223, 15, 15);
+  font-size: 15PX;
+  font-weight: bold;
+  margin-block-start: 5px;
+  margin-block-end: 0px;
+  margin-bottom: 0px;
+
+}
+
+

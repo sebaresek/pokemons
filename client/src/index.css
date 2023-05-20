@@ -1,0 +1,19 @@
+body {
+  /* background-image: url(../public/fondo.jpg); */
+  /* background: #D2D7DF; */
+  background: linear-gradient(90deg, rgba(210,215,223,1) 0%, rgba(226,230,237,1) 40%, rgba(226,230,237,1) 60%, rgba(210,215,223,1) 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: left;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,40 @@
+select {
+    /* margin-top: .5em; */
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    align-items: center;
+    margin-top: .2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-size: 15px;
+    color: #666;
+    border: 1px solid rgb(187, 187, 187);;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    appearance: none;
+    background-color: rgb(187, 187, 187);
+    background-image: linear-gradient(to bottom, rgb(187, 187, 187),);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  select:hover,
+  select:focus {
+    border-color: #666;
+    text-decoration: none;
+    background-color: rgb(129, 129, 129);
+  }
+  
+  select option {
+    background-color: rgb(187, 187, 187);;
+    color: #5e5b5b;
+    text-align: center; 
+    font-size: 15px;
+    font-weight: 550;
+  }
+  
+
+  .filter {
+    margin-bottom: 70px;
+  }

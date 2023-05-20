@@ -1,0 +1,9 @@
+export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
+export const FILTER = 'FILTER';
+export const ORDER = 'ORDER';
+export const SEARCH_POKEMON = 'SEARCH_POKEMON';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const PREV_PAGE = "PREV_PAGE";
+export const RESET_POKEMON = "RESET_POKEMON";
+export const HANDLE_NUMBER = "HANDLE_NUMBER"
+export const FILTER_TYPES = 'FILTER_TYPES'

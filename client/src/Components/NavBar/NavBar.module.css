@@ -1,0 +1,154 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    box-shadow: 0 0 .2rem #1a1a1ac9, 0 0 .2rem #1a1a1ac9, 0 0 2rem #1a1a1ac9;
+    background-color: #131313da;
+  }
+
+
+/******************************************************************************/
+
+.buttonLog{
+  background-color: rgba(187, 187, 187, 0.863);
+  cursor: pointer;
+  position: absolute;
+  align-items: center;
+  top: .3em;
+  right: 0;
+  margin: 10px;
+  height: 2.2em;
+  border: transparent;
+  overflow: hidden;
+  transition: 350ms;
+  font-family: Arial, Helvetica, sans-serif ;
+  font-weight: 800;
+  border-radius: 10px;
+}
+.buttonLog:hover{
+  background-color: #2b2a2a;
+  text-decoration: none;
+  box-shadow: 0 0 .2rem #1a1a1ac9, 0 0 .2rem #1a1a1ac9, 0 0 2rem #1a1a1ac9;
+}
+
+/******************************************************************************/
+
+.buttonGithub{
+  position: absolute;
+  top: .1em;
+  right: 8em;
+  margin: 10px;
+  width: fit-content;
+
+}
+
+/******************************************************************************/
+  
+
+  .button {
+  position: absolute;
+  padding: .7em 1.5em;
+  top: .65em;
+  left: 2.5em ;
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  overflow: hidden;
+  /* se están aplicando transiciones a tres propiedades diferentes */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  border-radius: 12px;
+  background-color: #2E86AB;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+}
+  
+.button:before {
+  /* mientras que pase el blanco que no se muestre el texto 'home' */
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-color: #D2D7DF;
+  /* top: 1.8em; */
+  left: 9%;
+  /* skewX(30deg): Esta transformación skewX aplica una inclinación o sesgo horizontal al elemento. El valor 30deg indica un sesgo de 30 grados hacia la derecha */
+  /* translate(-100%, -50%): Esta transformación translate realiza una traslación del elemento en los ejes X e Y. El valor -100% en el eje X indica que el elemento se moverá hacia la izquierda en un 100% de su ancho, y el valor -50% en el eje Y indica que se moverá hacia arriba en un 50% de su altura. */
+  transform: skewX(30deg) translate(-100%, -50%);
+  /* El valor transform indica que se aplicará una transición suave a todas las transformaciones aplicadas al elemento */
+  transition: transform 0.8s;
+}
+  
+.button:hover {
+  background-color: #d85d5b ;
+  color: #fff;
+}
+  
+.button:hover:before {
+  transform: skewX(30deg) translate(250%, -50%);
+}
+  
+.button:active {
+  /* El valor 0.9 indica que el botón se reducirá a un 90% de su tamaño original. */
+  transform: scale(0.9);
+}
+  
+/******************************************************************************/
+
+.buttonForm {
+  position: absolute;
+  padding: .7em 1.5em;
+  top: .65em;
+  left: 12em ;
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  border-radius: 12px;
+  background-color: #2E86AB;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+}
+  
+.buttonForm:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-color: #D2D7DF;
+  left: 9%;
+  transform: skewX(30deg) translate(-100%, -50%);
+  transition: transform 0.8s;
+}
+  
+.buttonForm:hover {
+  background-color: #d85d5b ;
+  color: #fff;
+}
+  
+.buttonForm:hover:before {
+  transform: skewX(30deg) translate(250%, -50%);
+}
+  
+.buttonForm:active {
+  transform: scale(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
