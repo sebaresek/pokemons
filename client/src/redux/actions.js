@@ -13,8 +13,8 @@ import { GET_ALL_POKEMONS,
 
 export const getAllPokemons = () => async (dispatch) => {
   try {
-    await axios.get("http://localhost:3001/types/");
-    const result = await axios.get("http://localhost:3001/pokemons/");
+    await axios.get("https://pokemons.up.railway.app/types/");
+    const result = await axios.get("https://pokemons.up.railway.app/pokemons/");
     dispatch({
       type: GET_ALL_POKEMONS,
       payload: { result: result.data },
