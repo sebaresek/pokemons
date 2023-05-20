@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Pokemon, TypesOfPokemon } = require('../db');
 const { DB_URL } = process.env;
-const URL = `${DB_URL}/pokemon`
+const URL = `https://pokeapi.co/api/v2/pokemon`
 
 
 
