@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Detail.module.css';
 import axios from 'axios';
-const URL_BASE = 'http://localhost:3001/pokemons/';
+const URL_BASE = 'https://pokemons.up.railway.app/pokemons/';
 
 const Detail = () => {
   const { id } = useParams();
