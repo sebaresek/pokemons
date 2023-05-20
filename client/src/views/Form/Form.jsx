@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import style from './Form.module.css';
 import validation from "./validation";
-const URL = 'http://localhost:3001/pokemons/';
+const URL = 'https://pokemons.up.railway.app/pokemons/';
 
 const Form = () => {
 
