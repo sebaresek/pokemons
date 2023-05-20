@@ -1,4 +1,4 @@
-﻿# 👀 TRABAJO INTEGRADOR 'POKEMONS'
+﻿# 👀 TRABAJO INTEGRADOR 'POKEMON'
 
 <br />
 
@@ -35,6 +35,7 @@ En Henry te capacitan para que con todo lo que sabes hasta el momento ya sea suf
 🔹 Gracias por haber visitado mi Repositorio! Espero que te haya gustado y sido de gran utilidad para vos!
 
 Mi nombre es Sebastian Resek y espero poder ayudarte en otra ocacion 👋 
+
 Por cualquier duda o consulta contactame! 
 
 <br />
