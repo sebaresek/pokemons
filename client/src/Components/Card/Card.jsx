@@ -32,6 +32,11 @@ const  Card = (props) => {
                 </div>
 
 
+                <div >            
+                    <button onClick={() => props.onClose(props.id)}>X</button>
+                </div>
+
+
                 {/* <audio ref={audioRef}> */}
                     {/* <source src={process.env.PUBLIC_URL + '/pop.mp3'} type="audio/mpeg" /> */}
                 {/* </audio> */}

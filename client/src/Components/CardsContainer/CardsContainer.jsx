@@ -6,7 +6,7 @@ import { getAllPokemons } from "../../redux/actions";
 import Paginate from "../Paginate/Paginate";
 
 
-const  CardsContainer  = () => {
+const  CardsContainer  = ({onClose}) => {
 
 
     const dispatch = useDispatch();
@@ -58,6 +58,7 @@ const  CardsContainer  = () => {
                             // el ? sirve para verificar si la propiedad types existe en el objeto pokemon. Si existe, se ejecutará la función map() sobre la propiedad types, y si no existe, se devolverá undefined.
                             types={pokemon.types?.map(type => type).join(' - ')}
                             typess={pokemon.TypesOfPokemons?.map(type => type.name).join(' - ')}
+                            onClose={onClose}
                     />
                 })}
             </div>

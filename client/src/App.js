@@ -42,6 +42,10 @@ function App() {
     }
   };
   
+  const onClose = (id) => {
+    console.log(id)
+    setPokemons(pokemons.filter(pokemon => pokemon.id !== id))
+  };
   
 
 
@@ -52,7 +56,7 @@ function App() {
       <Route exact path='/' component={Landing} />
       <Route exact path='/detail/:id' component={Detail} />
       <Route exact path='/create' component={Form} />
-      <Route exact path='/home' render={() => <Home pokemons={pokemons} />} />
+      <Route exact path='/home' render={() => <Home pokemons={pokemons} onClose={onClose} />} />
     </div>
   );
 }
