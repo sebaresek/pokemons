@@ -32,36 +32,12 @@ const deletedPokemon = async(id) => {
 } 
 
 
-
 const createPokemon = async (name, image, life, stroke, defending, speed, height, weight, typeId) => {
     const pokemon = await Pokemon.create({ name, image, life, stroke, defending, speed, height, weight });
     //agregamos una nueva entrada en la tabla de relación que indica que el Pokemon este pertenece al tipo de Pokemon que se especifica mediante el typeId
     await pokemon.addTypesOfPokemon(typeId);
     return pokemon;
 };
-
-
-
-
-const getPokemonById = async (id, source) => {
-    const pokemon =
-        source === 'api'
-        ? await axios.get(`${URL}/${id}`)
-        //se procesa con .then el resultado y se aplica la función cleanObject al objeto .data 
-        .then(res => cleanObject(res.data)) 
-        : await Pokemon.findByPk(id, {include: { 
-            //incluimos con include: el model de tipo de pokemon
-            model: TypesOfPokemon,
-            //indicamos que queremos solo el atributo name
-            attributes: ['name'],
-            // indicamos que no se incluyan los atributos de la tabla de relación
-            through: { attributes: [] } 
-        },
-    });
-    return pokemon;
-};
-
-
 
 
 const getAllPokemons = async () => {
@@ -88,31 +64,72 @@ const getAllPokemons = async () => {
 };
 
 
+const getPokemonById = async (id, source) => {
+    const pokemon =
+        source === 'api'
+        ? await axios.get(`${URL}/${id}`)
+        //se procesa con .then el resultado y se aplica la función cleanObject al objeto .data 
+        .then(res => cleanObject(res.data)) 
+        : await Pokemon.findByPk(id, {include: { 
+            //incluimos con include: el model de tipo de pokemon
+            model: TypesOfPokemon,
+            //indicamos que queremos solo el atributo name
+            attributes: ['name'],
+            // indicamos que no se incluyan los atributos de la tabla de relación
+            through: { attributes: [] } 
+        },
+    });
+    return pokemon;
+};
 
+
+
+// const searchPokemonByName = async (name) => {
+//     const databasePokemons = await Pokemon.findAll({ where: { name } });
+    
+//     const apiPokemonsRaw = (await axios.get(`${URL}`)).data.results;
+//     const filteredApi = apiPokemonsRaw
+//         //convertimos todo a minúsculas asi ambos valores serán iguales
+//         .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
+//         // se mapea, se procesa con .then el resultado y se aplica la función cleanObject al objeto .data
+//         .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
+//     // Comprobamos si se encontraron resultados en ambas fuentes de datos
+//     if (filteredApi.length === 0 && databasePokemons.length === 0) {
+//       throw new Error(`El Pokemon con el nombre ${name} no existe`)};
+//     // devolvemos una promesa con los resultados combinados de ambas fuentes de datos, que se resuelve cuando todas las promesas del arreglo se han resuelto
+
+//     // Si solo hay un resultado, lo devolvemos directamente como objeto
+//     if (filteredApi.length + databasePokemons.length === 1) {
+//     return filteredApi.length > 0 ? filteredApi[0] : databasePokemons[0];
+//     };
+    
+//     // De lo contrario, devolvemos un array con los resultados combinados
+//     return Promise.all([...filteredApi, ...databasePokemons]);
+// };
 
 const searchPokemonByName = async (name) => {
-    const databasePokemons = await Pokemon.findAll({ where: { name } });
-    
-    const apiPokemonsRaw = (await axios.get(`${URL}`)).data.results;
+    const databasePokemons = await Pokemon.findAll({
+      where: { name },
+      include: {
+        model: TypesOfPokemon,
+        attributes: ['name'],
+        through: { attributes: [] },
+      },
+    });
+    const apiPokemonsRaw = (await axios.get(`${URL}/${name}`)).data.results;  // https://pokeapi.co/api/v2/pokemon/{name}  
     const filteredApi = apiPokemonsRaw
-        //convertimos todo a minúsculas asi ambos valores serán iguales
-        .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
-        // se mapea, se procesa con .then el resultado y se aplica la función cleanObject al objeto .data
-        .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
-    // Comprobamos si se encontraron resultados en ambas fuentes de datos
+    .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
     if (filteredApi.length === 0 && databasePokemons.length === 0) {
-      throw new Error(`El Pokemon con el nombre ${name} no existe`)};
-    // devolvemos una promesa con los resultados combinados de ambas fuentes de datos, que se resuelve cuando todas las promesas del arreglo se han resuelto
+        throw new Error(`El Pokemon con el nombre ${name} no existe`)
+    };
 
     // Si solo hay un resultado, lo devolvemos directamente como objeto
     if (filteredApi.length + databasePokemons.length === 1) {
     return filteredApi.length > 0 ? filteredApi[0] : databasePokemons[0];
     };
-    
-    // De lo contrario, devolvemos un array con los resultados combinados
+
     return Promise.all([...filteredApi, ...databasePokemons]);
 };
-
 
 
 
