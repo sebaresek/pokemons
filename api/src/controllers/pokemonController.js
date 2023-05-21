@@ -116,20 +116,21 @@ const searchPokemonByName = async (name) => {
       .then(res => cleanObject(res.data));
   
     // Comprobamos si no se encontraron resultados en ambas fuentes de datos
-    if (apiPokemon === null && databasePokemons === null) {
-      throw Error(`El Pokémon con el nombre ${name} no existe`);
+    if (apiPokemon === null && databasePokemons.length === 0) {
+      throw new Error(`El Pokémon con el nombre ${name} no existe`);
     }
   
     // Si solo hay un resultado, lo devolvemos directamente como objeto
-    if (apiPokemon !== null ) {
-        return apiPokemon;
-    } else if (databasePokemons !== null) {
-        return databasePokemons;
+    if (apiPokemon !== null) {
+      return apiPokemon;
+    } else if (databasePokemons.length === 1) {
+      return databasePokemons[0];
     }
   
     // Combinamos los resultados de ambas fuentes de datos
     return [...apiPokemon, ...databasePokemons];
   };
+  
   
 
 
