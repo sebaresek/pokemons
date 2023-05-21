@@ -112,7 +112,7 @@ const getPokemonById = async (id, source) => {
 //     return Promise.all([...filteredApi, ...databasePokemons]);
 // };
 
-const searchPokemonByName = async (name) => {
+const searchPokemonByNameDb = async (name) => {
     const databasePokemons = await Pokemon.findAll({
         where: { name },
         include: {
@@ -120,55 +120,31 @@ const searchPokemonByName = async (name) => {
           attributes: ['name'],
           through: { attributes: [] },
         },
-      });
-    
-    const apiPokemon = (await axios.get(`${URL}/${name}`))
-        .then(res => cleanObject(res.data));
-
-    if (apiPokemon === null && databasePokemons === null) {
-      throw new Error(`El Pokemon con el nombre ${name} no existe`)};
-    // devolvemos una promesa con los resultados combinados de ambas fuentes de datos, que se resuelve cuando todas las promesas del arreglo se han resuelto
-
-    // Si solo hay un resultado, lo devolvemos directamente como objeto
-    if (apiPokemon !== null) {
-      return apiPokemon;
-    } else if (databasePokemons.length === 1) {
-      return databasePokemons[0];
-    }
-    // if (apiPokemon.length + databasePokemons.length === 1) {
-    // return apiPokemon.length > 0 ? apiPokemon[0] : databasePokemons[0];
-    // };
-    
-    // De lo contrario, devolvemos un array con los resultados combinados
-    return Promise.all([...apiPokemon, ...databasePokemons]);
+    });
+    return [ ...databasePokemons];
 };
 
 
+const searchPokemonByNameApi = async (name) => {
+    
+    const apiPokemon = await axios.get(`${URL}/${name}`)
+      .then(res => cleanObject(res.data));
+  
+    // Comprobamos si no se encontraron resultados en ambas fuentes de datos
+    if (!apiPokemon) {
+      throw new Error(`El Pokémon con el nombre ${name} no existe`);
+    }
+  
+    // Combinamos los resultados de ambas fuentes de datos
+    return [...apiPokemon];
+};
 
-
-
-// const searchPokemonByName = async (name) => {
-//     const databasePokemons = await Pokemon.findAll({ where: { name } });
+const searchPokemonByName = async (name) => {
+    const apiResults = await searchPokemonByNameApi(name);
+    const dbResults = await searchPokemonByNameDb(name);
   
-//     const apiPokemon = await axios.get(`${URL}/${name}`)
-//       .then(res => cleanObject(res.data));
-  
-//     // Comprobamos si no se encontraron resultados en ambas fuentes de datos
-//     if (apiPokemon === null && databasePokemons.length === 0) {
-//       throw new Error(`El Pokémon con el nombre ${name} no existe`);
-//     }
-  
-//     // Si solo hay un resultado, lo devolvemos directamente como objeto
-//     if (apiPokemon !== null) {
-//       return apiPokemon;
-//     } else if (databasePokemons.length === 1) {
-//       return databasePokemons[0];
-//     }
-  
-//     // Combinamos los resultados de ambas fuentes de datos
-//     return [...apiPokemon, ...databasePokemons];
-//   };
-  
+    return [...apiResults, ...dbResults];
+};
   
 
 
@@ -177,6 +153,8 @@ module.exports = {
     createPokemon,
     getPokemonById,
     getAllPokemons,
+    // searchPokemonByNameDb,
+    // searchPokemonByNameApi,
     searchPokemonByName,
     deletedPokemon
 };
