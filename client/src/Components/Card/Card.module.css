@@ -144,20 +144,17 @@
 } */
 
 .btn{
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .btn button{
-  top: 10px;
-  left: 10px;
   border-radius: 5rem;
   width: 3rem;
   height: 2rem;
   background: linear-gradient(rgba(196, 26, 26, 0.461), rgba(0, 0, 0, 0));
   border: transparent;
-
   overflow: hidden;
   transition: 300ms;
 }
