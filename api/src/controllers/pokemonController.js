@@ -110,13 +110,7 @@ const getPokemonById = async (id, source) => {
 
 
 const searchPokemonByName = async (name) => {
-    const databasePokemons = await Pokemon.findAll({ where: { name }, 
-      include: {
-        model: TypesOfPokemon,
-        attributes: ['name'],
-        through: { attributes: [] },
-      },
-    });
+    const databasePokemons = await Pokemon.findAll({ where: { name } });
   
     const apiPokemon = await axios.get(`${URL}/${name}`)
       .then(res => cleanObject(res.data));

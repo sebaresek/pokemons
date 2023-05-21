@@ -5,7 +5,6 @@ const {
     searchPokemonByName,
     deletedPokemon
 } = require('../controllers/pokemonController')
-const { Pokemon } = require('../db');
 
 
 const getPokemonsHandler = async (req, res) => {
