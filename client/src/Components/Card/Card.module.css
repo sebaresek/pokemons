@@ -143,22 +143,24 @@
   transform: scale(0.9);
 } */
 
-
-
-.btn {
+.btn{
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.btn button{
   border-radius: 1rem;
-  width: 2.5rem;
+  width: 2.3rem;
   height: 2rem;
   background-color: rgba(187, 187, 187, 0.863);
   border: transparent;
   overflow: hidden;
   transition: 300ms;
+  color: #2b2a2a;
 }
 
-.btn:hover{
+.btn button:hover{
   cursor: pointer;
   transform: scale(1.1);
   color: white;
@@ -166,6 +168,6 @@
   box-shadow: 0 0 1rem #1a1a1ac9, 0 0 4rem #1a1a1ac9, 0 0 8rem #1a1a1ac9;
 }
 
-.btn:active {
+.btn button:active {
   transform: scale(0.9);
 } 
