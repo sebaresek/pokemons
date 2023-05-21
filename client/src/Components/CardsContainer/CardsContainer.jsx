@@ -39,10 +39,10 @@ const  CardsContainer  = () => {
     // console.log(pokemons[0].TypesOfPokemons[0].name);
 
 
-    const onClose = (id) => {
-        console.log(id)
-        dispatch(deletePokemon(id));
-    };
+    // const onClose = (id) => {
+    //     console.log(id)
+    //     dispatch(deletePokemon(id));
+    // };
 
 
     return (
@@ -64,7 +64,7 @@ const  CardsContainer  = () => {
                             // el ? sirve para verificar si la propiedad types existe en el objeto pokemon. Si existe, se ejecutará la función map() sobre la propiedad types, y si no existe, se devolverá undefined.
                             types={pokemon.types?.map(type => type).join(' - ')}
                             typess={pokemon.TypesOfPokemons?.map(type => type.name).join(' - ')}
-                            onClose={onClose}
+                            // onClose={onClose}
                     />
                 })}
             </div>
