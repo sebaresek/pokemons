@@ -118,6 +118,7 @@ const searchPokemonByName = async (name) => {
     });
     const apiPokemonsRaw = (await axios.get(`${URL}/${name}`)).data.results;  // https://pokeapi.co/api/v2/pokemon/{name}  
     const filteredApi = apiPokemonsRaw
+    .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
     .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
     if (filteredApi.length === 0 && databasePokemons.length === 0) {
         throw new Error(`El Pokemon con el nombre ${name} no existe`)
