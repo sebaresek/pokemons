@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import style from './CardsContainer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getAllPokemons, deletePokemon } from "../../redux/actions";
 import Paginate from "../Paginate/Paginate";
 
@@ -13,18 +13,23 @@ const  CardsContainer  = () => {
     // utilizamos el hooks useSelector que es una fn que toma el estado global de la app y devuelve una parte especifica, en este caso la prop pokemons
     const filteredPokemons  = useSelector(state => state.filteredPokemons)
     const { numPage } = useSelector((state) => state);
+    const [viewCharacters, setViewCharacters] = useState([]);
 
     useEffect(() => {
         dispatch(getAllPokemons());
     }, [dispatch]);
 
 
+
+    useEffect(() => {
     //indica desde que card se va a mostar
     // si se quiere mostrar 12 elementos por página y se está en la página 3, entonces desde sería 24 (2 * 12 = 24)
     let desde = (numPage - 1) * 12; // 0, 12, 24, ...
     //indica hasta que card se va a mostar
     //si se quiere mostrar 12 elementos por página y se está en la página 3, entonces hasta sería 36 (3 * 12 = 36)
     let hasta = numPage * 12; /// 12, 24, 36, ...
+    setViewCharacters(filteredPokemons?.slice(desde, hasta));
+  }, [filteredPokemons, numPage]);
 
     // para que muestre si o si 12 cards por paginas
     // let cantPages = Math.floor(pokemons.length / 12);
@@ -32,7 +37,7 @@ const  CardsContainer  = () => {
     let cantPages = Math.ceil(filteredPokemons.length / 12);
 
     // copia un array igual que el original pasando por parametros desde donde hasta donde mostrar
-    let viewCharacters = filteredPokemons?.slice(desde, hasta); 
+    // let viewCharacters = filteredPokemons?.slice(desde, hasta); 
 
 
     const handleDelete = (id) => {

@@ -105,12 +105,11 @@ const reducer = (state = initialState, { type, payload }) => {
     };
     
 
-    case DELETE_POKEMON:
-      // Manejar la acción para eliminar un Pokémon
-      return {
-        ...state,
-        pokemons: state.pokemons.filter(pokemon => pokemon.id !== payload)
-      };
+  case DELETE_POKEMON:
+    return {
+      ...state,
+      pokemons: state.pokemons.filter(pokemon => pokemon.id !== payload)
+    };
 
 
 
