@@ -121,9 +121,9 @@ const searchPokemonByName = async (name) => {
     }
   
     // Si solo hay un resultado, lo devolvemos directamente como objeto
-    if (apiPokemon !== null && databasePokemons.length === 0) {
+    if (apiPokemon !== null ) {
         return apiPokemon;
-    } else if (apiPokemon === null && databasePokemons.length > 0) {
+    } else if (databasePokemons.length !== null) {
         return databasePokemons;
     }
   
