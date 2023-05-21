@@ -150,10 +150,10 @@
 }
 
 .btn button{
-  border-radius: 5rem;
+  border-radius: 1rem;
   width: 3rem;
   height: 2rem;
-  background: linear-gradient(rgba(196, 26, 26, 0.461), rgba(0, 0, 0, 0));
+  background-color: rgba(187, 187, 187, 0.863);
   border: transparent;
   overflow: hidden;
   transition: 300ms;
@@ -163,6 +163,6 @@
   cursor: pointer;
   transform: scale(1.1);
   color: white;
-  background-color: rgba(255, 0, 0, 0.582);
-  box-shadow: 0 0 1rem rgba(255, 81, 81, 0.461), 0 0 4rem rgba(255, 81, 81, 0.461), 0 0 8rem rgba(255, 81, 81, 0.461);
+  background-color: #2b2a2a;
+  box-shadow: 0 0 1rem #1a1a1ac9, 0 0 4rem #1a1a1ac9, 0 0 8rem #1a1a1ac9;
 }
