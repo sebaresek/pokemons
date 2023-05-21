@@ -150,9 +150,9 @@
 }
 
 .btn button{
-  margin-left: 1rem;
+  top: 10px;
+  left: 10px;
   border-radius: 5rem;
-  margin-top: .7rem;
   width: 3rem;
   height: 2rem;
   background: linear-gradient(rgba(196, 26, 26, 0.461), rgba(0, 0, 0, 0));

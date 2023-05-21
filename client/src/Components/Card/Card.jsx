@@ -27,7 +27,7 @@ const  Card = (props) => {
 
                 {showDeleteButton && (
                 <div className={style.btn}>
-                    <button onClick={() => props.onDelete(props.id)}> DELETE </button>
+                    <button onClick={() => props.onDelete(props.id)}> X </button>
                 </div>
                 )}
 
