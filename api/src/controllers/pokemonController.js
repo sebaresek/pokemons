@@ -83,7 +83,14 @@ const getPokemonById = async (id, source) => {
 
 
 const searchPokemonByName = async (name) => {
-    const databasePokemons = await Pokemon.findAll({ where: { name } });
+    const databasePokemons = await Pokemon.findAll({
+        where: { name },
+        include: {
+          model: TypesOfPokemon,
+          attributes: ['name'],
+          through: { attributes: [] },
+        },
+      });
     
     const apiPokemonsRaw = (await axios.get(`${URL}`)).data.results;
     const filteredApi = apiPokemonsRaw
