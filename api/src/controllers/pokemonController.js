@@ -122,17 +122,22 @@ const searchPokemonByName = async (name) => {
         },
       });
     
-      const apiPokemon = await axios.get(`${URL}/${name}`)
+    const apiPokemon = (await axios.get(`${URL}/${name}`))
         .then(res => cleanObject(res.data));
 
-    if (apiPokemon.length === 0 && databasePokemons.length === 0) {
+    if (apiPokemon === null && databasePokemons === null) {
       throw new Error(`El Pokemon con el nombre ${name} no existe`)};
     // devolvemos una promesa con los resultados combinados de ambas fuentes de datos, que se resuelve cuando todas las promesas del arreglo se han resuelto
 
     // Si solo hay un resultado, lo devolvemos directamente como objeto
-    if (apiPokemon.length + databasePokemons.length === 1) {
-    return apiPokemon.length > 0 ? apiPokemon[0] : databasePokemons[0];
-    };
+    if (apiPokemon !== null) {
+      return apiPokemon;
+    } else if (databasePokemons.length === 1) {
+      return databasePokemons[0];
+    }
+    // if (apiPokemon.length + databasePokemons.length === 1) {
+    // return apiPokemon.length > 0 ? apiPokemon[0] : databasePokemons[0];
+    // };
     
     // De lo contrario, devolvemos un array con los resultados combinados
     return Promise.all([...apiPokemon, ...databasePokemons]);
