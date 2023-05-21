@@ -21,7 +21,7 @@ export default function Paginate ({ cantPages }) {
 
   const renderPageNumbers = () => {
     const pageNumbers = []; // crea un arreglo vacío para almacenar los números de las páginas a mostrar
-    const maxPages = cantPages > 5 ? 5 : cantPages; // calcula el máximo número de páginas a mostrar según la cantidad total de páginas
+    const maxPages = cantPages > 3 ? 3 : cantPages; // calcula el máximo número de páginas a mostrar según la cantidad total de páginas
     
     if (numPage <= 1) { // si la página actual es la primera...
       for (let i = 1; i <= maxPages; i++) { // ... itera desde la página 1 hasta la página máxima a mostrar
