@@ -150,7 +150,7 @@
 }
 
 .btn button{
-  border-radius: 1rem;
+  border-radius: 10px;
   width: 2rem;
   height: 2rem;
   background-color: rgba(187, 187, 187, 0.863);
