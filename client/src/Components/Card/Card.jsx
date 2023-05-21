@@ -24,6 +24,12 @@ const  Card = (props) => {
                 <img src={props.image} alt={props.name} />
             </div>
 
+            {showDeleteButton && (
+                <div className={style.button}>
+                    <button onClick={() => props.onDelete(props.id)}> DELETE </button>
+                </div>
+            )}
+
             <div className={style.back} >
                 <div>
                     <Link to={`/detail/${props.id}`} className={style.link}>
@@ -34,12 +40,6 @@ const  Card = (props) => {
                 <div className={style.type}>
                     <h2>Type: {props.types ? props.types : props.typess}</h2>
                 </div>
-
-                {showDeleteButton && (
-                    <div className={style.button}>
-                        <button onClick={() => props.onDelete(props.id)}> DELETE </button>
-                    </div>
-                )}
 
 
                 {/* <audio ref={audioRef}> */}
