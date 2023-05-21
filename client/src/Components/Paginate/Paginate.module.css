@@ -1,19 +1,17 @@
-/* .pagination {
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-} */
+}
   
-/* .pageNumbers {
-  display: flex; */
+.pageNumbers {
+  display: flex;
   /* establece el valor none para eliminar los estilos de viñeta o numeración predeterminados de la lista */
-  /* list-style: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   justify-content: center;
-  color: #555;
-  font-size: 10px;
   align-items: center;
 }
   
@@ -26,25 +24,30 @@ li {
   color: #555;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 600; */
+  font-weight: 600;
   /* : Elimina el contorno alrededor del botón cuando está enfocado, lo que significa que no se muestra ningún resaltado adicional cuando se hace clic o se selecciona el botón. */
-  /* outline: none;
+  outline: none;
   padding: 8px;
   transition: all 0.3s ease-in-out;
 }
   
+button.current-page {
+  color: #fdfdfd;
+  font-size: 13px;
+}
+
 button:hover {
   color: #222;
 }
-   */
-/* botón deshabilitado */
-/* button:disabled {
-  color: #ccc; */
-  /* Cambia el cursor del ratón a "not-allowed" (no permitido) cuando se pasa por encima del botón deshabilitado */
-  /* cursor: not-allowed;
-} */
   
-/* .prevButton,
+/* botón deshabilitado */
+button:disabled {
+  color: #ccc;
+  /* Cambia el cursor del ratón a "not-allowed" (no permitido) cuando se pasa por encima del botón deshabilitado */
+  cursor: not-allowed;
+}
+  
+.prevButton,
 .nextButton {
   font-size: 20px;
   margin: 0 10px;
@@ -61,10 +64,10 @@ button:hover {
 .nextButton:disabled {
   color: #555;
   cursor: not-allowed;
-} */
+}
   
 /* establece estilos específicos para las clases de elementos .prevButton y .nextButton cuando el ancho de la ventana es igual o inferior a 768 píxeles. */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .prevButton,
   .nextButton {
     font-size: 16px;
@@ -72,81 +75,4 @@ button:hover {
     padding: 5px 8px;
   }
 }
-   */
-
-   .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .pageNumbers {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    color: #555;
-    font-size: 10px;
-    align-items: center;
-  }
-  
-  .pageNumbers li {
-    margin: 0 5px;
-  }
-  
-  .pageNumbers button {
-    background: none;
-    border: none;
-    color: #555;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    outline: none;
-    padding: 8px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .pageNumbers button.current-page {
-    color: #888;
-    font-size: 20px;
-  }
-  
-  .pageNumbers button:hover {
-    color: #222;
-  }
-  
-  .pageNumbers button:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .prevButton,
-  .nextButton {
-    font-size: 20px;
-    margin: 0 10px;
-    padding: 8px 12px;
-    box-shadow: #ccc;
-  }
-  
-  .prevButton:hover,
-  .nextButton:hover {
-    color: #222;
-  }
-  
-  .prevButton:disabled,
-  .nextButton:disabled {
-    color: #555;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    .prevButton,
-    .nextButton {
-      font-size: 16px;
-      margin: 0 5px;
-      padding: 5px 8px;
-    }
-  }
   

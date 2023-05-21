@@ -41,7 +41,9 @@ export default function Paginate ({ cantPages }) {
     return pageNumbers.map((number) => {
       return (
         <li key={number}>
-          <button onClick={() => page(number)}>{number}</button>
+          <button 
+          className={number === numPage ? style.currentPage : ""}
+          onClick={() => page(number)}> {number} </button>
         </li>
       );
     });
