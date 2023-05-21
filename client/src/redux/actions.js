@@ -29,7 +29,7 @@ export const getAllPokemons = () => async (dispatch) => {
 export const deletePokemon = (id) => {
   return async (dispatch) => {
     try {
-      await axios.delete(`"ttps://pokemons.up.railway.app/pokemons/${id}`);
+      await axios.delete(`https://pokemons.up.railway.app/pokemons/${id}`);
       dispatch({
         type: DELETE_POKEMON,
         payload: id
