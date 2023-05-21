@@ -1,6 +1,5 @@
 const axios = require("axios");
 const { Pokemon, TypesOfPokemon } = require('../db');
-const { DB_URL } = process.env;
 const URL = `https://pokeapi.co/api/v2/pokemon`
 
 
@@ -111,8 +110,7 @@ const getPokemonById = async (id, source) => {
 
 
 const searchPokemonByName = async (name) => {
-    const databasePokemons = await Pokemon.findAll({
-      where: { name },
+    const databasePokemons = await Pokemon.findAll({ where: { name }, 
       include: {
         model: TypesOfPokemon,
         attributes: ['name'],
@@ -124,16 +122,14 @@ const searchPokemonByName = async (name) => {
       .then(res => cleanObject(res.data));
   
     // Comprobamos si no se encontraron resultados en ambas fuentes de datos
-    if (apiPokemon === null && databasePokemons.length === 0) {
-      throw new Error(`El Pokémon con el nombre ${name} no existe`);
+    if (apiPokemon.length === 0 && databasePokemons.length === 0) {
+      throw Error(`El Pokémon con el nombre ${name} no existe`);
     }
   
     // Si solo hay un resultado, lo devolvemos directamente como objeto
-    if (apiPokemon !== null && databasePokemons.length === 0) {
-      return apiPokemon;
-    } else if (apiPokemon === null && databasePokemons.length === 1) {
-      return databasePokemons[0];
-    }
+    if (filteredApi.length + databasePokemons.length === 1) {
+    return apiPokemon.length > 0 ? filteredApi[0] : databasePokemons[0];
+    };
   
     // Combinamos los resultados de ambas fuentes de datos
     return [...apiPokemon, ...databasePokemons];
