@@ -26,10 +26,10 @@ const cleanObject = (obj) => {
 };
 
 
-const deletedPokemon = async(id) => {
-    const deletedPokemon = await Pokemon.findOneAndDelete(id);
-    return deletedPokemon;
-} 
+// const deletedPokemon = async(id) => {
+//     const deletedPokemon = await Pokemon.findOneAndDelete(id);
+//     return deletedPokemon;
+// } 
 
 
 

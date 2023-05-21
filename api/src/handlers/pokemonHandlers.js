@@ -46,21 +46,14 @@ const createPokemonHandler = async (req, res) => {
 };
   
 
-const deletedPokemonHandler = async (req, res) => {
-    const { id } = req.params;
+const deletedPokemon = async (id) => {
     try {
-        
-        const deleted = await deletedPokemon(id);
-
-        if(!deleted) {
-            res.status(404).json({error : 'El pokemon no fue encontrado'})
-        }
-        res.status(200).json('El pokemon fue eliminado correctamente')
+      const deleted = await Pokemon.destroy({ where: { id } });
+      return deleted;
     } catch (error) {
-        console.log(error);
-        res.status(500).json({error: 'Error al eliminar el pokemon'})
+      throw error;
     }
-}
+  };
   
   
 
