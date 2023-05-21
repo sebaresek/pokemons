@@ -3,7 +3,7 @@ const {
     getPokemonById,
     getAllPokemons,
     searchPokemonByName,
-    // deletedPokemon
+    deletedPokemon
 } = require('../controllers/pokemonController')
 const { Pokemon } = require('../db');
 
@@ -47,12 +47,17 @@ const createPokemonHandler = async (req, res) => {
 };
   
 
-const deletedPokemonHandler = async (id) => {
+const deletedPokemonHandler = async (req, res) => {
+    const { id } = req.params;
     try {
-      const deleted = await Pokemon.destroy({ where: { id } });
-      return deleted;
+      const deleted = await deletedPokemon(id);
+      if (deleted > 0) {
+        res.status(200).json({ message: 'El Pokémon fue eliminado correctamente' });
+      } else {
+        res.status(404).json({ error: 'El Pokémon no fue encontrado' });
+      }
     } catch (error) {
-        return res.status(400).json({ error: error.message });
+      res.status(500).json({ error: 'Error al eliminar el Pokémon' });
     }
   };
   
