@@ -7,3 +7,4 @@ export const PREV_PAGE = "PREV_PAGE";
 export const RESET_POKEMON = "RESET_POKEMON";
 export const HANDLE_NUMBER = "HANDLE_NUMBER"
 export const FILTER_TYPES = 'FILTER_TYPES'
+export const DELETE_POKEMON = 'DELETE_POKEMON'

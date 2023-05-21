@@ -4,7 +4,7 @@ import { filterCards, orderCards,filterTypes } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
 
-const Home = ({ pokemons, onClose }) => {
+const Home = ({ pokemons }) => {
   // console.log(pokemons)
 
   const dispatch = useDispatch()
@@ -69,7 +69,7 @@ const Home = ({ pokemons, onClose }) => {
 
             </div>
             
-      <CardsContainer  pokemons={pokemons}  onClose={onClose} />
+      <CardsContainer  pokemons={pokemons} />
       
     </div>
   );

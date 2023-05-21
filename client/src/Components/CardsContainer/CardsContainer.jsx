@@ -2,11 +2,11 @@ import Card from "../Card/Card";
 import style from './CardsContainer.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from "react";
-import { getAllPokemons } from "../../redux/actions";
+import { deletePokemon, getAllPokemons } from "../../redux/actions";
 import Paginate from "../Paginate/Paginate";
 
 
-const  CardsContainer  = ({onClose}) => {
+const  CardsContainer  = () => {
 
 
     const dispatch = useDispatch();
@@ -35,8 +35,14 @@ const  CardsContainer  = ({onClose}) => {
     let viewCharacters = filteredPokemons?.slice(desde, hasta); 
 
 
-    console.log(filteredPokemons);
+    // console.log(filteredPokemons);
     // console.log(pokemons[0].TypesOfPokemons[0].name);
+
+
+    const onClose = (id) => {
+        console.log(id)
+        dispatch(deletePokemon(id));
+    };
 
 
     return (

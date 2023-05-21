@@ -7,7 +7,8 @@ import { GET_ALL_POKEMONS,
   RESET_POKEMON,
   PREV_PAGE,
   NEXT_PAGE,
-  FILTER_TYPES
+  FILTER_TYPES,
+  DELETE_POKEMON
 } from "./action-types";
 
 
@@ -73,3 +74,10 @@ export const orderCards = (order) => {
       payload: order 
     };
 }
+
+export const deletePokemon = (pokemonId) => {
+  return {
+    type: DELETE_POKEMON,
+    payload: pokemonId,
+  };
+};
