@@ -116,7 +116,7 @@ const searchPokemonByName = async (name) => {
         through: { attributes: [] },
       },
     });
-    const apiPokemonsRaw = (await axios.get(`${URL}/${name}`)).data.results;
+    const apiPokemonsRaw = (await axios.get(`${URL}`)).data.results;
     const filteredApi = apiPokemonsRaw
         //convertimos todo a minúsculas asi ambos valores serán iguales
         .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
