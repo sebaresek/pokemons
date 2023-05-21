@@ -37,7 +37,7 @@ const  Card = (props) => {
 
                 {showDeleteButton && (
                     <div>
-                        <button onClick={() => props.onDelete(props.id)}>X</button>
+                        <button onClick={() => props.onDelete(props.id)}>DELETE POKEMON</button>
                     </div>
                 )}
 
