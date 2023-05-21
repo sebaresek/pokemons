@@ -121,5 +121,5 @@ module.exports = {
     getPokemonById,
     getAllPokemons,
     searchPokemonByName,
-    deletedPokemon
+    // deletedPokemon
 };
