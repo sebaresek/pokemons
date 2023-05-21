@@ -133,24 +133,22 @@
 }
 
 .button {
-  font-size: 1.2rem;
-  font-weight: bold;
-  /* establece el espacio de relleno del contenido dentro del botón, es decir, la distancia entre el contenido y el borde del botón. */
-  /* padding: 0.5rem 2rem; */
-  border-radius: 7px;
   background-color: transparent;
-  color: #860c0c;
-  /* establece la decoración del texto dentro del botón, en este caso no hay ninguna*/
-  text-decoration: none;
-  /* establece la duración y la forma en que se llevará a cabo la transición de estilo del botón cuando el cursor del mouse se sitúa sobre él. En este caso, la transición será de 0.3 segundos con una función de aceleración/desaceleración suave. */
-  transition: background-color 0.3s ease-in-out, color 0.3s, transform 0.3s;
-  box-shadow: 0 2px 2px 2px #570000;
+  color: red;
+  border: 2px solid red;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .button:hover {
-  background-color: #860c0c;
-  color: #fdfdfd;
-  box-shadow: 0 2px 2px 2px #570000;
+  background-color: red;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .button:active {
