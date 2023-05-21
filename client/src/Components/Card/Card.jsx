@@ -36,8 +36,8 @@ const  Card = (props) => {
                 </div>
 
                 {showDeleteButton && (
-                    <div>
-                        <button onClick={() => props.onDelete(props.id)}>DELETE POKEMON</button>
+                    <div className={style.button}>
+                        <button onClick={() => props.onDelete(props.id)}> DELETE </button>
                     </div>
                 )}
 
