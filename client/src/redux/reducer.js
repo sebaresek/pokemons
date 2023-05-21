@@ -6,7 +6,8 @@ import { GET_ALL_POKEMONS,
   PREV_PAGE,
   ORDER,
   FILTER,
-  FILTER_TYPES
+  FILTER_TYPES,
+  DELETE_POKEMON
  } from "./action-types";
 
 
@@ -103,6 +104,15 @@ const reducer = (state = initialState, { type, payload }) => {
       filteredPokemons: filteredByTypes
     };
     
+
+    case DELETE_POKEMON:
+      // Manejar la acción para eliminar un Pokémon
+      return {
+        ...state,
+        pokemons: state.pokemons.filter(pokemon => pokemon.id !== payload)
+      };
+
+
 
     default:
       return state;

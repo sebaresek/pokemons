@@ -31,6 +31,10 @@ const  Card = (props) => {
                     <h2>Type: {props.types ? props.types : props.typess}</h2>
                 </div>
 
+                <div>
+                    <button onClick={() => props.onDelete(props.id)}>X</button>
+                </div>
+
 
                 {/* <audio ref={audioRef}> */}
                     {/* <source src={process.env.PUBLIC_URL + '/pop.mp3'} type="audio/mpeg" /> */}

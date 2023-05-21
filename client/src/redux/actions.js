@@ -7,7 +7,8 @@ import { GET_ALL_POKEMONS,
   RESET_POKEMON,
   PREV_PAGE,
   NEXT_PAGE,
-  FILTER_TYPES
+  FILTER_TYPES,
+  DELETE_POKEMON
 } from "./action-types";
 
 
@@ -21,8 +22,26 @@ export const getAllPokemons = () => async (dispatch) => {
     });
   } catch (error) {
     console.error(error);
-    }
+  }
 };
+
+
+export const deletePokemon = (id) => {
+  return async (dispatch) => {
+    try {
+      await axios.delete(`"ttps://pokemons.up.railway.app/pokemons/${id}`);
+      dispatch({
+        type: DELETE_POKEMON,
+        payload: id
+      });
+    } catch (error) {
+      console.log('Error al eliminar el Pokémon:', error);
+
+    }
+  };
+};
+
+
 
 export const searchPokemon = (pokemon) => {
   return { type: SEARCH_POKEMON, 

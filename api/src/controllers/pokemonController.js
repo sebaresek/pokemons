@@ -26,6 +26,11 @@ const cleanObject = (obj) => {
 };
 
 
+const deletedPokemon = async(pokemonId) => {
+    const deletedPokemon = await Pokemon.findByIdAndRemove(pokemonId);
+    return deletedPokemon;
+} 
+
 
 
 const createPokemon = async (name, image, life, stroke, defending, speed, height, weight, typeId) => {
@@ -115,5 +120,6 @@ module.exports = {
     createPokemon,
     getPokemonById,
     getAllPokemons,
-    searchPokemonByName
+    searchPokemonByName,
+    deletedPokemon
 };
