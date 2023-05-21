@@ -21,14 +21,16 @@ const  Card = (props) => {
     return (
         <div className={style.card}  >
 
-            {showDeleteButton && (
+            <div className={style.font}>
+                
+                <img src={props.image} alt={props.name} />
+
+                {showDeleteButton && (
                 <div className={style.button}>
                     <button onClick={() => props.onDelete(props.id)}> DELETE </button>
                 </div>
-            )}
+                )}
 
-            <div className={style.font}>
-                <img src={props.image} alt={props.name} />
             </div>
 
 
