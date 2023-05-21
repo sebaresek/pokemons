@@ -7,8 +7,7 @@ import { GET_ALL_POKEMONS,
   RESET_POKEMON,
   PREV_PAGE,
   NEXT_PAGE,
-  FILTER_TYPES,
-  DELETE_POKEMON
+  FILTER_TYPES
 } from "./action-types";
 
 
@@ -74,21 +73,3 @@ export const orderCards = (order) => {
       payload: order 
     };
 }
-
-export const deletePokemon = (id) => {
-  return async (dispatch) => {
-    try {
-      // Realiza una solicitud DELETE al servidor para eliminar el Pokémon
-      await axios.delete(`https://pokemons.up.railway.app/pokemons/${id}`);
-
-      // Despacha la acción DELETE_POKEMON con el ID del Pokémon eliminado
-      dispatch({
-        type: 'DELETE_POKEMON',
-        payload: id,
-      });
-    } catch (error) {
-      // Maneja cualquier error que ocurra durante la eliminación
-      console.error('Error al eliminar el Pokémon:', error);
-    }
-  };
-};

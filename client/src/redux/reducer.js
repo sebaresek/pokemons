@@ -6,8 +6,7 @@ import { GET_ALL_POKEMONS,
   PREV_PAGE,
   ORDER,
   FILTER,
-  FILTER_TYPES,
-  DELETE_POKEMON
+  FILTER_TYPES
  } from "./action-types";
 
 
@@ -104,16 +103,6 @@ const reducer = (state = initialState, { type, payload }) => {
       filteredPokemons: filteredByTypes
     };
     
-
-    case DELETE_POKEMON:
-      // Filtra el arreglo de pokemons y devuelve un nuevo arreglo sin el pokemon con el ID especificado
-      const updatedPokemons = state.pokemons.filter(
-        (pokemon) => pokemon.id !== payload
-      );
-      return {
-        ...state,
-        pokemons: updatedPokemons,
-      };
 
     default:
       return state;

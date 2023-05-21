@@ -1,25 +1,21 @@
 import style from './Card.module.css';
 // import { useRef } from "react";
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deletePokemon } from '../../redux/actions';
 
 
 
 const  Card = (props) => {
-    const dispatch = useDispatch()
+    
     // const audioRef = useRef(null);
-    function handleMouse() {
+    // function handleMouse() {
     //    audioRef.current.currentTime = 0;
     //    audioRef.current.play();
-        dispatch(deletePokemon(props.id));
-        console.log('mouse entered')
-    }
+    // }
     //  onMouseEnter={handleMouse}
 
 
     return (
-        <div className={style.card}   >
+        <div className={style.card}  >
             <div className={style.font}>
                 <img src={props.image} alt={props.name} />
             </div>
@@ -33,11 +29,6 @@ const  Card = (props) => {
 
                 <div className={style.type}>
                     <h2>Type: {props.types ? props.types : props.typess}</h2>
-                </div>
-
-
-                <div >            
-                    <button onClick={handleMouse}>X</button>
                 </div>
 
 
