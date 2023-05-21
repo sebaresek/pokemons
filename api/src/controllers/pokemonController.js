@@ -122,7 +122,7 @@ const searchPokemonByName = async (name) => {
       .then(res => cleanObject(res.data));
   
     // Comprobamos si no se encontraron resultados en ambas fuentes de datos
-    if (apiPokemon.length === 0 && databasePokemons.length === 0) {
+    if (apiPokemon === null && databasePokemons.length === 0) {
       throw Error(`El Pokémon con el nombre ${name} no existe`);
     }
   
