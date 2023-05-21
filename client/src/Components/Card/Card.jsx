@@ -22,11 +22,11 @@ const  Card = (props) => {
         <div className={style.card}  >
 
             <div className={style.font}>
-                
+
                 <img src={props.image} alt={props.name} />
 
                 {showDeleteButton && (
-                <div className={style.button}>
+                <div className={style.btn}>
                     <button onClick={() => props.onDelete(props.id)}> DELETE </button>
                 </div>
                 )}
