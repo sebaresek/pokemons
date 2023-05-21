@@ -48,7 +48,7 @@ const getAllPokemons = async () => {
         }
     });
   // Obtenemos todos los pokemons de la API
-  const apiResponse = (await axios.get(`${URL}`)).data.results;
+  const apiResponse = (await axios.get(`${URL}?limit=50`)).data.results;
   // array de objetos que contiene la información básica >>>
   // console.log(apiResponse) <<< Mira xd
   const apiPromises = apiResponse.map(pokemon => axios.get(pokemon.url));
@@ -96,8 +96,8 @@ const searchPokemonByName = async (name) => {
     const filteredApi = apiPokemonsRaw
         //convertimos todo a minúsculas asi ambos valores serán iguales
         .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
-        // se mapea, se procesa con .then el resultado y se aplica la función cleanObject al objeto .data
-        .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
+        //se procesa con .then el resultado y se aplica la función cleanObject al objeto .data
+        .then(res => cleanObject(res.data));
     // Comprobamos si se encontraron resultados en ambas fuentes de datos
     if (filteredApi.length === 0 && databasePokemons.length === 0) {
       throw new Error(`El Pokemon con el nombre ${name} no existe`)};
