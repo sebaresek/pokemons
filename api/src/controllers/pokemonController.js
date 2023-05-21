@@ -135,16 +135,15 @@ const searchPokemonByNameApi = async (name) => {
       throw new Error(`El Pokémon con el nombre ${name} no existe`);
     }
   
-    // Combinamos los resultados de ambas fuentes de datos
     return [...apiPokemon];
 };
 
-const searchPokemonByName = async (name) => {
-    const apiResults = await searchPokemonByNameApi(name);
-    const dbResults = await searchPokemonByNameDb(name);
+// const searchPokemonByName = async (name) => {
+//     const apiResults = await searchPokemonByNameApi(name);
+//     const dbResults = await searchPokemonByNameDb(name);
   
-    return [...apiResults, ...dbResults];
-};
+//     return [...apiResults, ...dbResults];
+// };
   
 
 
@@ -153,8 +152,8 @@ module.exports = {
     createPokemon,
     getPokemonById,
     getAllPokemons,
-    // searchPokemonByNameDb,
-    // searchPokemonByNameApi,
-    searchPokemonByName,
+    searchPokemonByNameDb,
+    searchPokemonByNameApi,
+    // searchPokemonByName,
     deletedPokemon
 };
