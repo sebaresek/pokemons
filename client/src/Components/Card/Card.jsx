@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 
 const  Card = (props) => {
+    const {  typess } = props;
+
+    // la doble negacion es para convertir un valor en booleano
+    const showDeleteButton = !!typess;
     
     // const audioRef = useRef(null);
     // function handleMouse() {
@@ -31,9 +35,11 @@ const  Card = (props) => {
                     <h2>Type: {props.types ? props.types : props.typess}</h2>
                 </div>
 
-                <div>
-                    <button onClick={() => props.onDelete(props.id)}>X</button>
-                </div>
+                {showDeleteButton && (
+                    <div>
+                        <button onClick={() => props.onDelete(props.id)}>X</button>
+                    </div>
+                )}
 
 
                 {/* <audio ref={audioRef}> */}
