@@ -3,8 +3,9 @@ const {
     getPokemonById,
     getAllPokemons,
     searchPokemonByName,
-    deletedPokemon
+    // deletedPokemon
 } = require('../controllers/pokemonController')
+const { Pokemon } = require('../db');
 
 
 const getPokemonsHandler = async (req, res) => {
@@ -51,7 +52,7 @@ const deletedPokemonHandler = async (id) => {
       const deleted = await Pokemon.destroy({ where: { id } });
       return deleted;
     } catch (error) {
-      throw error;
+        return res.status(400).json({ error: error.message });
     }
   };
   
