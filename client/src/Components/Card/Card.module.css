@@ -166,3 +166,7 @@
   background-color: #2b2a2a;
   box-shadow: 0 0 1rem #1a1a1ac9, 0 0 4rem #1a1a1ac9, 0 0 8rem #1a1a1ac9;
 }
+
+.btn button:active {
+  transform: scale(0.9);
+} 
