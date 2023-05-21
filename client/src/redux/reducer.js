@@ -59,7 +59,6 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
 
-
     case ORDER:
       const orderedPokemons = [...state.filteredPokemons];
       orderedPokemons.sort((a, b) => {
@@ -108,8 +107,10 @@ const reducer = (state = initialState, { type, payload }) => {
   case DELETE_POKEMON:
     return {
       ...state,
-      pokemons: state.pokemons.filter(pokemon => pokemon.id !== payload)
+      pokemons: state.pokemons.filter(pokemon => pokemon.id !== payload),
+      filteredPokemons: state.filteredPokemons.filter(pokemon => pokemon.id !== payload)
     };
+    
 
 
 
