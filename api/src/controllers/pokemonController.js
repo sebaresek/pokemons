@@ -26,8 +26,8 @@ const cleanObject = (obj) => {
 };
 
 
-const deletedPokemon = async(pokemonId) => {
-    const deletedPokemon = await Pokemon.findOneAndDelete(pokemonId);
+const deletedPokemon = async(id) => {
+    const deletedPokemon = await Pokemon.findOneAndDelete(id);
     return deletedPokemon;
 } 
 
