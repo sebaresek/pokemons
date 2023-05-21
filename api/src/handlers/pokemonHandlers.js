@@ -46,7 +46,7 @@ const createPokemonHandler = async (req, res) => {
 };
   
 
-const deletedPokemon = async (id) => {
+const deletedPokemonHandler = async (id) => {
     try {
       const deleted = await Pokemon.destroy({ where: { id } });
       return deleted;
