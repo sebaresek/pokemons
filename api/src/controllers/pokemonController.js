@@ -48,7 +48,7 @@ const getAllPokemons = async () => {
         }
     });
   // Obtenemos todos los pokemons de la API
-  const apiResponse = (await axios.get(`${URL}?limit=50`)).data.results;
+  const apiResponse = (await axios.get(`${URL}?limit=60`)).data.results;
   // array de objetos que contiene la información básica >>>
   // console.log(apiResponse) <<< Mira xd
   const apiPromises = apiResponse.map(pokemon => axios.get(pokemon.url));
