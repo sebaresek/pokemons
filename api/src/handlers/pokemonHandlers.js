@@ -50,12 +50,7 @@ const deletedPokemonHandler = async (req, res) => {
     const { id } = req.params;
     try {
       const deleted = await deletedPokemon(id);
-    //El método destroy devuelve el número de filas afectadas por la operación Si se elimina correctamente al menos una fila, deleted será mayor que cero
-      if (deleted > 0) {
-        res.status(200).json({ message: 'El Pokémon fue eliminado correctamente' });
-      } else {
-        res.status(404).json({ error: 'El Pokémon no fue encontrado' });
-      }
+      res.status(200).json({ message: 'El Pokémon fue eliminado correctamente' });
     } catch (error) {
       res.status(500).json({ error: 'Error al eliminar el Pokémon' });
     }

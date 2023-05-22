@@ -88,14 +88,14 @@ const searchPokemonByName = async (name) => {
         include: {
           model: TypesOfPokemon,
           attributes: ['name'],
-          through: { attributes: [] },
+          through: { attributes: [] }, //especificar que no se incluyan los atributos de la tabla intermedia en una relación de muchos a muchos.
         },
     });
     
     const apiPokemonsRaw = (await axios.get(`${URL}?limit=1010`)).data.results;
     const filteredApi = apiPokemonsRaw
         //convertimos todo a minúsculas asi ambos valores serán iguales
-        .filter(pokemon => pokemon.name.toLowerCase() == name.toLowerCase())
+        .filter(pokemon => pokemon.name.toLowerCase() === name.toLowerCase())
         // se mapea, se procesa con .then el resultado y se aplica la función cleanObject al objeto .data
         .map(pokemon => axios.get(pokemon.url).then(res => cleanObject(res.data)));
     // Comprobamos si se encontraron resultados en ambas fuentes de datos
