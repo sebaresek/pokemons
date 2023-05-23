@@ -31,20 +31,20 @@ const Home = ({ pokemons }) => {
 
     <div >
             <div className={style.filter}>
-                <select onChange={handleOrder} name="Order" id="" className={style.select}>
+                <select onChange={handleOrder} name="Order" className={style.select}>
                 {/* <option disabled selected>ORDER BY</option> */}
                 <option value="A">Upward</option>
                 <option value="D">Falling</option> 
                 <option value="Attack">By attack</option>
                 </select >
 
-                <select onChange={handleFilter} name="Filter" id="" className={style.select}>
+                <select onChange={handleFilter} name="Filter" className={style.select}>
                 <option value="all" >All</option>
                 <option value="API" >API</option>
                 <option value="Database" >Database</option>
                 </select>
 
-                <select onChange={handleFilterTypes} name="Filter" id="" className={style.select}>
+                <select onChange={handleFilterTypes} name="Filter" className={style.select}>
                 <option value="normal">Normal</option>
                 <option value="fighting">Fighting</option>
                 <option value="flying">Flying</option>

@@ -80,7 +80,8 @@ const reducer = (state = initialState, { type, payload }) => {
       if (payload === 'all') {
         filteredPokemons = [...state.pokemons];
       } else if (payload === 'API') {
-        filteredPokemons = state.pokemons.filter(pokemon => typeof pokemon.id === 'number');
+        //por cada elemento pokemons del array state.pokemons
+        filteredPokemons = state.pokemons.filter(pokemon => typeof pokemon.id === 'number'); 
       } else if (payload === 'Database') {
         filteredPokemons = state.pokemons.filter(pokemon => typeof pokemon.id === 'string');
       } return {

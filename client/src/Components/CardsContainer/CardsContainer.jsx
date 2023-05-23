@@ -10,7 +10,7 @@ const  CardsContainer  = () => {
 
 
     const dispatch = useDispatch();
-    // utilizamos el hooks useSelector que es una fn que toma el estado global de la app y devuelve una parte especifica, en este caso la prop pokemons
+    // simplemente asigna el valor de state.filteredPokemons a la variable filteredPokemons en el componente actual
     const filteredPokemons  = useSelector(state => state.filteredPokemons)
     const { numPage } = useSelector((state) => state);
     const [viewCharacters, setViewCharacters] = useState([]);
@@ -23,21 +23,16 @@ const  CardsContainer  = () => {
 
     useEffect(() => {
     //indica desde que card se va a mostar
-    // si se quiere mostrar 12 elementos por página y se está en la página 3, entonces desde sería 24 (2 * 12 = 24)
-    let desde = (numPage - 1) * 12; // 0, 12, 24, ...
+    let desde = (numPage - 1) * 12; 
     //indica hasta que card se va a mostar
-    //si se quiere mostrar 12 elementos por página y se está en la página 3, entonces hasta sería 36 (3 * 12 = 36)
-    let hasta = numPage * 12; /// 12, 24, 36, ...
+    let hasta = numPage * 12; 
+    // Accede al array filteredPokemons y utiliza el método slice() para crear una nueva copia del array que contiene solo los elementos dentro del rango determinado por los índices desde y hasta
     setViewCharacters(filteredPokemons?.slice(desde, hasta));
+    // El efecto se ejecutará cada vez que haya un cambio en filteredPokemons o numPage
   }, [filteredPokemons, numPage]);
-
-    // para que muestre si o si 12 cards por paginas
-    // let cantPages = Math.floor(pokemons.length / 12);
-    //por si quiero mostrar 12 por paginas y que la ultima pag sea lo que resta (redondea para arriba)
+    
+    //calcula la cantidad de páginas necesarias para mostrar todos los elementos del array filteredPokemons. math.ceil redondea para arriba
     let cantPages = Math.ceil(filteredPokemons.length / 12);
-
-    // copia un array igual que el original pasando por parametros desde donde hasta donde mostrar
-    // let viewCharacters = filteredPokemons?.slice(desde, hasta); 
 
 
     const handleDelete = (id) => {
@@ -45,14 +40,14 @@ const  CardsContainer  = () => {
       };
     
 
-    console.log(filteredPokemons);
+    // console.log(filteredPokemons);
     // console.log(pokemons[0].TypesOfPokemons[0].name);
 
 
     return (
         <div>
             <div className={style.container}>
-                {viewCharacters &&
+                {viewCharacters && //si viewCharacters existe y no es null o falso se ejecuta el .map
                     viewCharacters.map(pokemon =>{
                         return <Card
                             key={pokemon.id} // Agregar una propiedad "key" única a cada Card

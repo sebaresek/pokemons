@@ -24,23 +24,23 @@ export default function Paginate ({ cantPages }) {
     const maxPages = cantPages > 3 ? 3 : cantPages; // calcula el máximo número de páginas a mostrar según la cantidad total de páginas
     
     if (numPage <= 1) { // si la página actual es la primera...
-      for (let i = 1; i <= maxPages; i++) { // ... itera desde la página 1 hasta la página máxima a mostrar
-        pageNumbers.push(i); // agrega cada número de página al arreglo
+      for (let i = 1; i <= maxPages; i++) { //itera desde la página 1 hasta la página máxima a mostrar
+        pageNumbers.push(i);
       }
     } else if (numPage >= cantPages - 1) { // si la página actual es la última o la penúltima...
       for (let i = cantPages - maxPages + 1; i <= cantPages; i++) { // ...itera desde la página (cantPages - maxPages + 1) hasta la última página
-        pageNumbers.push(i); // agrega cada número de página al arreglo
+        pageNumbers.push(i); 
       }
     } else { // si la página actual está en el medio...
       for (let i = numPage - 1; i <= numPage + 1; i++) { // ...itera desde la página anterior a la actual hasta la página siguiente a la actual
-        pageNumbers.push(i); // agrega cada número de página al arreglo
+        pageNumbers.push(i); 
       }
     }
     
     // Mapea el arreglo de números de página para generar una lista de botones para cambiar de página
     return pageNumbers.map((number) => {
       return (
-        <li key={number}>
+        <li  key={number}>
           <button 
           className={number === numPage ? style.currentPage : ""}
           onClick={() => page(number)}> {number} </button>

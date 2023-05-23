@@ -11,7 +11,7 @@ import { createRoot } from 'react-dom/client';
 // En React 18, se introdujo una nueva API llamada createRoot() que reemplaza la función ReactDOM.render(). La API createRoot() tiene como objetivo mejorar el rendimiento y la estabilidad de la aplicación React.
 
 
-const root = document.getElementById('root');
+const root = document.getElementById('root'); //crea una variable llamada "root" y la inicializa con el elemento del DOM encontrado con el ID "root"
 
 createRoot(root).render(
   <React.StrictMode>

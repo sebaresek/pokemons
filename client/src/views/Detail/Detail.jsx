@@ -9,18 +9,18 @@ const Detail = () => {
   const [pokemon, setPokemon] = useState({});
 
 
-    useEffect(() => {
-        axios(`${URL_BASE}/${id}`)
-        .then(response => response.data)
-        .then((data) => {
+  useEffect(() => {
+    axios.get(`${URL_BASE}/${id}`)
+      .then(({data}) => {
         if (data.name) {
-            setPokemon(data);
+          setPokemon(data);
         } else {
-            alert('No hay personajes con ese ID');
+          alert('No hay personajes con ese ID');
         }
-        });
-        return setPokemon({});
-    }, [id]);
+      });
+    return setPokemon({}); //Al final del efecto, se devuelve setPokemon({}). Esto se hace para restablecer el estado del Pokémon a un objeto vacío cuando el componente se desmonta o cuando cambia el ID
+  }, [id]);
+  
 
   if (!pokemon) {
     return <div className={styles.loading}>Loading...</div>;
@@ -28,15 +28,15 @@ const Detail = () => {
 
   const { name, image, life, stroke, defending, speed, height, weight } = pokemon;
 
-//   console.log('name:', name);
-//   console.log('image:', image);
-//   console.log('life:', life);
-//   console.log('stroke:', stroke);
-//   console.log('defending:', defending);
-//   console.log('speed:', speed);
-//   console.log('height:', height);
-//   console.log('weight:', weight);
-//   console.log('type:', pokemon.TypesOfPokemons?.map(type => type.name).join(' - '));
+  //   console.log('name:', name);
+  //   console.log('image:', image);
+  //   console.log('life:', life);
+  //   console.log('stroke:', stroke);
+  //   console.log('defending:', defending);
+  //   console.log('speed:', speed);
+  //   console.log('height:', height);
+  //   console.log('weight:', weight);
+  //   console.log('type:', pokemon.TypesOfPokemons?.map(type => type.name).join(' - '));
 
   const types = pokemon.types?.map(type => type).join(' - ')
   const typess = pokemon.TypesOfPokemons?.map(type => type.name).join(' - ')
