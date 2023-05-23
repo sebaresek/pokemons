@@ -24,7 +24,7 @@ const Form = () => {
     const changeHandler = (event) => {
         const property = event.target.name;
         const value = event.target.value;
-        // validation recibe como argumento un objeto que contiene una copia del estado form actualizado con la nueva propiedad [property] y su correspondiente valor value
+        // validation recibe como argumento un objeto que contiene una copia del estado form actualizado y sobreescribiendo a propiedad [property] con el valor de value
         const validationErrors = validation({ ...form, [property]: value });
       
         setForm({ ...form, [property]: value });
