@@ -7,7 +7,7 @@ import axios from 'axios';
 import { searchPokemon } from './redux/actions';
 import { useDispatch } from 'react-redux';
 
-const URL = 'https://pokemons.up.railway.app/pokemons'
+const URL = 'http://localhost:3000/pokemons'
 
 function App() {
 

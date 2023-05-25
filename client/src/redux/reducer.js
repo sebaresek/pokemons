@@ -60,14 +60,21 @@ const reducer = (state = initialState, { type, payload }) => {
 
 
     case ORDER:
+      console.log(payload)
       const orderedPokemons = [...state.filteredPokemons];
       orderedPokemons.sort((a, b) => {
-        if (a.ataque !== b.ataque) {
-          return payload === 'A' ? a.ataque - b.ataque : b.ataque - a.ataque;
+        if (payload === 'Attack') {
+          // return payload === 'Attack' ? a.ataque - b.ataque : b.ataque - a.ataque;
+            return a.stroke - b.stroke
+        }  else if ( payload === 'AttackD') {
+          console.log(`payload `, payload)
+          return b.stroke - a.stroke
         } else {
-          return payload === 'A' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+        return payload === 'A' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
         }
       });
+
+
 
       return {
         ...state,

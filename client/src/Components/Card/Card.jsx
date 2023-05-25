@@ -45,6 +45,10 @@ const  Card = (props) => {
                     <h2>Type: {props.types ? props.types : props.typess}</h2>
                 </div>
 
+                {/* <div className={style.type}>
+                    <h2>Stroke: {props.stroke}</h2>
+                </div> */}
+
 
                 {/* <audio ref={audioRef}> */}
                     {/* <source src={process.env.PUBLIC_URL + '/pop.mp3'} type="audio/mpeg" /> */}

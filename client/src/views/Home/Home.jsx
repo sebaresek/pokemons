@@ -11,12 +11,7 @@ const Home = ({ pokemons }) => {
 
   const handleOrder = (event) => {
     const selectedValue = event.target.value;
-    
-    if (selectedValue === 'A' || selectedValue === 'D') {
-      dispatch(orderCards(selectedValue)); // Ordenamiento por nombre ascendente o descendente
-    } else if (selectedValue === 'Attack') {
-      dispatch(orderCards('Attack')); // Ordenamiento por ataque
-    }
+    dispatch(orderCards(selectedValue))
   };
 
   const handleFilter = (event) => {
@@ -33,9 +28,10 @@ const Home = ({ pokemons }) => {
             <div className={style.filter}>
                 <select onChange={handleOrder} name="Order" className={style.select}>
                 {/* <option disabled selected>ORDER BY</option> */}
-                <option value="A">Upward</option>
-                <option value="D">Falling</option> 
-                <option value="Attack">By attack</option>
+                {/* <option value="A">Upward</option>
+                <option value="D">Falling</option>  */}
+                <option value="Attack">By attack A</option>
+                <option value="AttackD">By attack D</option>
                 </select >
 
                 <select onChange={handleFilter} name="Filter" className={style.select}>
