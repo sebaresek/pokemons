@@ -14,8 +14,8 @@ import { GET_ALL_POKEMONS,
 
 export const getAllPokemons = () => async (dispatch) => {
   try {
-    await axios.get("http://localhost:3001/types/");
-    const result = await axios.get("http://localhost:3001/pokemons/");
+    await axios.get("https://pokemons.up.railway.app/types/");
+    const result = await axios.get("https://pokemons.up.railway.app/pokemons/");
     dispatch({
       type: GET_ALL_POKEMONS,
       payload: { result: result.data },
@@ -29,7 +29,7 @@ export const getAllPokemons = () => async (dispatch) => {
 export const deletePokemon = (id) => {
   return async (dispatch) => {
     try {
-      await axios.delete(`http://localhost:3001/pokemons/${id}`);
+      await axios.delete(`https://pokemons.up.railway.app/pokemons/${id}`);
       dispatch({
         type: DELETE_POKEMON,
         payload: id
