@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Detail.module.css';
 import axios from 'axios';
-const URL_BASE = 'https://pokemons.up.railway.app/pokemons/';
+const URL_BASE = 'http://localhost:3001/pokemons/';
 
 const Detail = () => {
   const { id } = useParams();
@@ -121,4 +121,42 @@ export default Detail;
 
 
 
+// import React, { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getAllPokemons } from '../../redux/actions'
+
+// const Detail = ({ match }) => {
+//   const dispatch = useDispatch();
+//   const pokemon = useSelector(state => state.pokemons.find(pokemon => pokemon.id === parseInt(match.params.id)));
+
+//   useEffect(() => {
+//     dispatch(getAllPokemons(match.params.id));
+//   }, [dispatch, match.params.id]);
+
+//   if (!pokemon) {
+//     return <div>Loading...</div>;
+//   }
+
+//   const { id, name, image, life, stroke, defending, speed, height, weight, types } = pokemon;
+
+//   return (
+//     <div>
+//       <h2>Pokémon Details</h2>
+//       <div>
+//         <img src={image} alt={name} />
+//       </div>
+//       <div>ID: {id}</div>
+//       <div>Name: {name}</div>
+//       <div>Life: {life}</div>
+//       <div>Stroke: {stroke}</div>
+//       <div>Defending: {defending}</div>
+//       <div>Speed: {speed}</div>
+//       <div>Height: {height}</div>
+//       <div>Weight: {weight}</div>
+//       <div>Types: {types.join(', ')}</div>
+//     </div>
+//   );
+// };
+
+// export default Detail;
 
