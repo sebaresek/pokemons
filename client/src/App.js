@@ -7,7 +7,7 @@ import axios from 'axios';
 import { searchPokemon } from './redux/actions';
 import { useDispatch } from 'react-redux';
 
-const URL = 'http://localhost:3001/pokemons'
+const URL = 'https://servidor-pokemon-pzmd.onrender.com/pokemons'
 
 function App() {
 
